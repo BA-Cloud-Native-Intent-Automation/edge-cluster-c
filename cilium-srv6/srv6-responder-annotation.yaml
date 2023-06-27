@@ -3,5 +3,5 @@ kind: Node
 metadata: # kpt-merge: /node1
   name: node1 # Replace <node-name> with the name of your target node
   annotations:
-    cilium.io/bgp-virtual-router.65001: "router-id=172.0.0.2,srv6-responder=true" # Replace key and value with the desired annotation key-value pair
+    cilium.io/bgp-virtual-router.68000: "router-id=10.12.20.2,srv6-responder=true" # Replace key and value with the desired annotation key-value pair
     internal.kpt.dev/upstream-identifier: '|Node|default|node1'
