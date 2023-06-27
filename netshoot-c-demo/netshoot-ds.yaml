@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata: # kpt-merge: /netshoot-vrf0
+  name: netshoot-vrf0
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'apps|DaemonSet|default|netshoot-vrf0'
+spec:
+  selector:
+    matchLabels:
+      app: netshoot
+      vrf: vrf0
+  template:
+    metadata:
+      labels:
+        app: netshoot
+        vrf: vrf0
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: netshoot
+        image: nicolaka/netshoot:latest
+        command: ["sleep", "infinite"]
