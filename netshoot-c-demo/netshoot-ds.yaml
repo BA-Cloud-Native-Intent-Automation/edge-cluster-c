@@ -4,6 +4,7 @@ metadata: # kpt-merge: /netshoot-vrf0
   name: netshoot-vrf0
   annotations:
     internal.kpt.dev/upstream-identifier: 'apps|DaemonSet|default|netshoot-vrf0'
+  namespace: netshoot-c-demo
 spec:
   selector:
     matchLabels:
