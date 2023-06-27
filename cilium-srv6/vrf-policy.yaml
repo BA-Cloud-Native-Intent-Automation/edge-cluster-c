@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2alpha1
+kind: CiliumSRv6VRF
+metadata: # kpt-merge: /vrf0
+  name: vrf0
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'cilium.io|CiliumSRv6VRF|default|vrf0'
+spec:
+  vrfID: 1
+  importRouteTarget: "65000:1"
+  exportRouteTarget: "65000:1"
+  rules:
+  - selectors:
+    - podSelector:
+        matchLabels:
+          vrf: vrf0
+    destinationCIDRs:
+    - 10.3.0.0/24
